@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Malik Makkes">
+        <link rel="stylesheet" type="text/css" href="../style/Symmetric-style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="icon" type="image/svg" href="../images/Favicon.svg">
+        <script src="../javascript/anti-inspect.js"></script>
+        <script type="text/javascript" src="../javascript/Symmetric-js.js"></script>
+        <title>Symmetric Encryption</title>
+    </head>
+
+    <body onload="startTimer()">
+    <noscript>
+        <div class="noscriptmsg">
+            You don't have JavaScript enabled. Please allow JavaScript.
+        </div>
+    </noscript>
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>Symmetric Encryption</h1>
+                <p class="subtitle">A blog about single key cryptography</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <!--onclick="window.open('https://www.linkedin.com/in/khalfallah-anis/');" -->
+                    <li><a href="https://www.linkedin.com/in/malik-makkes/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://github.com/MalikSploit" target="_blank">GitHub</a></li>
+                    <li><img src="../images/moon.png" id="icon" alt="Theme"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container-flex">
+        <main role="main">
+            <article class="article-featured">
+                <h2 class="article-title">Single Key Cryptography</h2>
+                <p class="article-body first">This type of cryptography uses just a single key. So the same key is used both for encryption and decryption as well. This is why it is also called symmetric encryption, and its main problem is that the key must be exchanged at the beginning to encrypt and decrypt the plaintext.</p>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <img src="../images/20.svg" class="article-image" alt="Image"><br><br>
+                    <h2 class="article-title">Caesar Cipher</h2>
+                    <p class="article-body">It is a private key encryption (<b>symmetric encryption</b>) method. It was first used by <b>Julius Caesar</b> 2000 years ago. It's a type of substitution cipher : we shift every single letter in the plaintext with a fixed number of letters and the <b>Key</b> itself is the number of letters we use for shifting.</p>
+                    <img src="../images/21.svg" class="article-image" alt="Image about Caesar Cipher">
+                    <ol>
+                        <li class="liste">First we need to know that for the <b>Encryption</b> part we will use this formula : <span class="article-body green"><b>E<sub>n</sub>(x) = (x + n) mod 26</b></span></li>
+                        <li class="liste">We have to consider all the characters in the plaintext.</li>
+                        <li class="liste"><b>E(x)</b> is the encrypted letter of the original <b>x</b> letter.</li>
+                        <li class="liste">Then we have to shift the given letter with <b>n</b> (where <b>n</b> is the key).</li>
+
+                        <li class="liste">Now for the <b>Decryption</b> part we will use this formula : <span class="article-body green"><b>E<sub>n</sub>(x) = (x - n) mod 26</b></span></li>
+                        <li class="liste">We have to consider all the characters in the plaintext same as the encryption part.</li>
+                        <li class="liste"><b>D(x)</b> is the decrypted letter (<b>x</b> is letter in the ciphertext).</li>
+                        <li class="liste">Then we have to shift the given letter with <b>-n</b> (where <b>n</b> is the key).</li>
+                    </ol>
+                    <p class="article-body">If you are asking yourself why are we using <b>mod 26</b>, then the answer is very simple, because the size of the english alphabet is <b>26</b> which means there <b>26</b> letters in the english alphabet. That way the encrypted letter is withing the range <b>[0, SIZE_ALPHABET - 1]</b> so this why we use <b>mod 26</b>.</p>
+                    <p class="article-body"><span class="article-body green">Caesar Cipher Example With Private Key = 3 : </span></p>
+                    <ul>
+                        <li><b>Plaintext</b> : this is an example</li>
+                        <li><b>Ciphertext</b> : wklv lv dq hadpsoh</li>
+                    </ul>
+                </div>
+
+            </article>
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Vigenere Cipher</h2>
+                    <p class="article-body">Vigenere cipher uses a given word as the private key, the numerical representations of the letters in the key define how many characters to shift the actual letter in the plaintext. And Instead of using a single value as the key (<b>Caesar Cipher</b>) we have as many values as the number of letters in the private key. Therefore, we have : <span class="article-body green"><b>SIZE OF THE KEYSPACE = 26<sup>size of the key</sup></b></span></p>
+                    <p class="article-body">For the <b>Encryption</b> part we have the same formula as we used for <b>Caesar Cipher</b> : <span class="article-body green"><b>E<sub>i</sub>(x<sub>i</sub>) = (x<sub>i</sub> + K<sub>i</sub>) mod 26</b></span></p>
+                    <p class="article-body">Notably <b>x<sub>i</sub></b> is the actual letter in the plaintext.</p>
+                    <p class="article-body">Moreover <b>E<sub>i</sub>(x<sub>i</sub>)</b> is the encrypted letter in the ciphertext.</p>
+                    <p class="article-body">In <b>Vigenere Cipher</b> we have to use the <b>i-th</b> letter of the key for encrypting the <b>i-th</b> letter.</p>
+                    <p class="article-body">For the <b>Decryption</b> it's quite simple we just have to use this formula : <span class="article-body green"><b>D<sub>i</sub>(x<sub>i</sub>) = (x<sub>i</sub> - K<sub>i</sub>) mod 26</b></span></p>
+                    <p class="article-body"><span class="article-body green">Vigenere Cipher Example With Private Key = secret : </span></p>
+                    <ul>
+                        <li><b>Plaintext</b> : this is just an example</li>
+                        <li><b>Ciphertext</b> : llkj ml byuk eg wbcdtew</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Vernam Cipher</h2>
+                    <p class="article-body">It was first constructed by <b>Frank Miller</b> in <b>1882</b>. In this cryptosystem we will be using as many letters in the key as the length of the plaintext.</p>
+                    <p class="article-body">To prevent <a class="article-body link" title="Information Leaking Explanation" href="https://en.wikipedia.org/wiki/Information_leakage" target="_blank"><b>Information Leaking</b></a> we are going to use totally <b>random numbers</b> to shift the letters in the plaintext, therefore the key must have the same size as the plaintext plus the key must contain random numbers.<p>
+                    <p class="article-body">Let's start with the algorithm, we generate a truly random sequence (as many random numbers as the letters in the plaintext) which mean we must not reuse the same numbers over and over again. Finally, we shift the letters in the plaintext with the random numbers in the same manner as in <b>Vigenere Cipher</b> or <b>Caesar Cipher</b>.</p>
+                    <p class="article-body">Of course if we analyze the ciphertext with <b>Kasiski-method</b>, there will be no information leaking because every letter in the ciphertext is equally likely.</p>
+                    <p class="article-body">Here is an example below of an analysis using <b>Kasiski-method</b> :</p>
+                    <img src="../images/22.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <img src="../images/23.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <p class="article-body">Before we give some examples here are the formulas : </p>
+                    <ul>
+                        <li><b>Encryption</b> : <b>E<sub>i</sub> (x<sub>i</sub>)</b> = <b>(x<sub>i</sub> + VERNAM<sub>i</sub>) mod 26</b></li>
+                        <li><b>Decryption</b> : <b>D<sub>i</sub> (x<sub>i</sub>)</b> = <b>(x<sub>i</sub> - VERNAM<sub>i</sub>) mod 26</b></li>
+                    </ul>
+                    <img src="../images/24.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <img src="../images/25.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <img src="../images/26.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <p class="article-body">The main problem as far as Vernam Cipher is concerned is how to generate the random numbers. Unfortunately nowadays we still can't generate <b>true random numbers</b> so we generate <b>pseudo-random numbers</b> and the values are not independent of each other therefore pseudo-random numbers can repeat themselves and then be predicted. That is why it's not used because it's correct implementation is nearly impossible.</p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title" id="DES">Data Encryption Standard</h2>
+                    <p class="article-body">In the early <b>1970</b>s it became apparent that the commercial sector also has a need for cryptography.</p>
+                    <p class="article-body">For example : corporate secrets must have been transmitted securely, ATMs needed encrypted messages etc.</p>
+                    <p class="article-body">Here comes Data Encryption Standard (DES) which is a <b>symmetric-key algorithm</b> it was constructed in the early <b>1970</b> at <b>IBM</b> (designed mostly by <b>Horst Feistel</b>). It's a <b>block cipher</b> in other words the plaintext is processed to the ciphertext in number of blocks, hybrid of substitution cipher and permutation cipher and with that we are not able to crack <b>DES</b> using frequency analysis.</p>
+                    <ol>
+                        <li>First we have to split the plaintext into <b>64</b> bits long blocks, these blocks are the input in for the <b>16</b> rounds.</li>
+                        <li>These so called <b>16</b> rounds (iterations) during the encryption/decryption for <b>DES</b> are substituions, XOR operations etc. It's also important to note that the input for every iteration is a <b>64</b> bits long block.</li>
+                        <li>Every round needs a different key (it is called <b>sub keys</b>), and these keys are generated from the original <b>64</b> bits private key.</li>
+                        <li>It's main advantage is that encryption and decryption operations are very similar (requiring only the reversal of the key schedule).</li>
+                    </ol>
+                    <ul>
+                        <li>Block size : <b>64</b> bits</li>
+                        <li>Key size : <b>64</b> bits (56 relevants bits are used in the algorithm)</li>
+                        <li>Number of rounds : <b>16</b></li>
+                        <li>Number of subkeys : <b>16</b> (every sub key is <b>48</b> bits long)</li>
+                        <li>Cipher size : <b>64</b> bits</li>
+                    </ul>
+                    <br>
+                    <img src="../images/27.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/28.svg" class="article-image line" alt="Image about DES">
+                    <img id="img1" class="article-image line" src="../images/29.svg" alt="Image about DES"/>
+                    <!--<button type="button" onclick="displayPreviousImage()">Previous</button>-->
+                    <!--<button type="button" onclick="displayNextImage()">Next</button>-->
+                    <img src="../images/32.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/33.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/34.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/35.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/36.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/37.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/38.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/39.svg" class="article-image line" alt="Image about DES">
+                    <p class="article-body">As we saw above the <b>Data Encryption Standard</b> has a so-called <a class="article-body link" title="Feistel Structure Explanation" href="https://en.wikipedia.org/wiki/Feistel_cipher" target="_blank"><b>Feistel-structure</b></a> and it's main advantage is that encryption is very similar to decryption, we just use the same software and hardware, in other words we just have to use the same function we have used with encryption with the <b>subkeys</b> in a <b>reverse order</b>. The subkeys can be generated with circular left shift operations, usually in the implementation we generate all the 16 sub key at the beginning.</p>
+                    <ul>
+                        <li><b>Encryption</b> : We start with the first sub key then the second and etc.</li>
+                        <li><b>Decryption</b> : We start with the last (16<sup>th</sup>) then the 15<sup>th</sup> and etc.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title" id="AES">Advanced Encryption Standard</h2>
+                    <p class="article-body">After a few years, with the evolution of computers, <b>DES</b> could be brute forced in just 8 hours, therefore it became apparent that it was no longer secure : so there was a need for another truly secure cryptosystem.</p>
+                    <p class="article-body"><b>AES</b> (original name is <b>Rijindael</b>) was constructed in <b>2001</b> by <b>Vincent Rijmen</b> and <b>Joan Daemen</b>. This cryptosystem is the state-of-the-art even <b>nowadays</b>. It's actually a private key cryptosystem with three different key lengths : <b>128</b>,<b>192</b> and <b>256</b>. It's a block cipher like <b>DES</b> but it has nothing to do with Feistel structure.</p>
+                    <ul>
+                        <li>Plaintext block : <b>128</b> bits (<b>4</b> because <b>1</b> word is <b>32</b>)</li>
+                        <li>Key size : <b>128</b> bits (<b>4 words</b>)</li>
+                        <li>Number of subkeys : <b>10</b> subkeys</li>
+                        <li>Number of rounds : <b>10</b> rounds (or <b>12</b> or <b>14</b>)</li>
+                        <li>In each round we use <b>1</b> sub key + we have to use the original <b>128</b> bits long key before applying the round-function</li>
+                        <li>Ciphertext block 128 bits : <b>64</b> bits</li>
+                    </ul>
+                    <br>
+                    <img src="../images/40.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/41.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/42.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/43.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/44.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/45.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/46.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/47.svg" class="article-image line" alt="Image about AES">
+                    <img id="img2" class="article-image line" src="../images/48.svg" alt="Image about AES"/>
+                    <img src="../images/52.svg" class="article-image line" alt="Image about AES">
+                    <img id="img3" class="article-image line" src="../images/53.svg" alt="Image about AES"/>
+                    <p class="article-body"><b>Claude Shannon</b> defined these properties for a secure cipher :</p>
+                    <ul>
+                        <li><b>Confusion :</b> Each binary digit of the ciphertext should depend on several digits of the private key. Then we want to make the relationship between the input (plaintext) and output (ciphertext) as complex as possible. Finally, the ciphertext should give no clue about the plaintext, this way non-linear transformation are preferred (these operations destroy pattern in the plaintext) and makes it hard to find the key even if large number of plaintext-ciphertext pair are available. This is why we use <b>Substitution Boxes</b>.</li>
+                        <li><b>Diffusion :</b> If we change a single bit in the input (plaintext) then half of the digits in the output (ciphertext) should change. There are <b>2</b> states (<b>0</b> and <b>1</b>) so <b>50%</b> means <b>randomness</b> also called avalanche effect. This is why we use <b>Permutation Boxes</b>.</li>
+                    </ul>
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h2 class="widget-title">CRYPTO JOKE</h2>
+                <p class="widget-body">Two cryptographers walk into a bar. Nobody else has a clue what they're talking about.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>World of Cryptography</strong></p>
+        <p>Copyright &copy; 2022</p>
+        <p>Made with <i class="fas fa-heart"></i> By Malik Makkes</p>
+    </footer>
+
+    <script src="../javascript/DarkMode.js"></script>
+    </body>
+</html>

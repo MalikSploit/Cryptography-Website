@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Malik Makkes">
+        <link rel="stylesheet" type="text/css" href="../style/WEP_WPA-style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../javascript/anti-inspect.js"></script>
+        <link rel="icon" type="image/svg" href="../images/Favicon.svg">
+        <title>Wired Equivalent Privacy and Wi-Fi Protected Access</title>
+    </head>
+
+    <body>
+    <noscript>
+        <div class="noscriptmsg">
+            You don't have JavaScript enabled. Please allow JavaScript.
+        </div>
+    </noscript>
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>Wi-Fi Protected Access</h1>
+                <p class="subtitle">A blog about Wi-Fi related Cryptosystems</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <!--onclick="window.open('https://www.linkedin.com/in/khalfallah-anis/');" -->
+                    <li><a href="https://www.linkedin.com/in/malik-makkes/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://github.com/MalikSploit" target="_blank">GitHub</a></li>
+                    <li><img src="../images/moon.png" id="icon" alt="Theme"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container-flex">
+        <main role="main">
+            <article class="article-featured">
+                <h2 class="article-title">Introduction</h2>
+                <p class="article-body first">You can <b>connect to a wireless router with several devices</b> (PC, laptop or smartphones as well). A wireless router is a device that performs the functions of a router which mean it is used to <b>provide access to the internet</b> or a private computer network.</p>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <img src="../images/95.svg" class="article-image line height" alt="Image about Wi-Fi">
+                    <h2 class="article-title height">Wired Equivalent Privacy and Wi-Fi Protected Access</h2>
+                    <p class="article-body"><b>Wired equivalent privacy</b> is a security algorithm for wireless networks designed back in <b>1999</b>.</p>
+                    <p class="article-body">It's a <b>private key cryptography system</b> (symmetric encryption). The key size was <b>64</b> bits than later <b>128</b> bits although the <a class="article-body link" title="Initialization Vector Explanation" href="https://en.wikipedia.org/wiki/Initialization_vector" target="_blank"> <b>Initialization Vector (IV)</b></a> is part of the private key which takes up <b>24</b> bits</p>
+                    <img src="../images/96.svg" class="article-image line" alt="Image about Wi-Fi">
+                    <img src="../images/97.svg" class="article-image line" alt="Image about Wi-Fi">
+                    <img src="../images/98.svg" class="article-image" alt="Image about Wi-Fi">
+                    <p class="article-body"><b>Wi-Fi protected access</b> (WPA) is a security algorithm for wireless networks designed back in <b>2003</b>, the latest version (<b>WP3</b>) has been released back in <b>2018</b>. <b>WEP</b> used a <b>64</b> bit or <b>128</b> bit encryption key that must be manually entered on wireless access points on devices and does not change. However <b>WPA</b> dynamically generates a new <b>128</b> bits key for each packet, it uses <a class="article-body link" title="Advanced Encryption Standard" href="Symmetric.html#AES" target="_blank"><b>AES</b></a> as the underlying encryption algorithm</p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">HTTP and TLS Protocols</h2>
+                    <img src="../images/99.svg" class="article-image" alt="Image about HTTP">
+                    <p class="article-body">The problem with standard <b>HTTP</b> is that it does not use any cryptographic related encryption algorithm, therefore all information is sent in plain text format (without encryption), usernames, passwords and credit card related details are public. This is why we need more secure approaches and this is exactly why <b>HTTPS</b> came to be.</p>
+                    <p class="article-body"><b>HTTPS</b> is <b>Secure Hypertext Transfer Protocol</b> it encrypts the data that is being retrieved by <b>HTTP</b>. There are several <b>public key</b> and private key cryptography related approaches it supports (<b>RSA</b>, <b>ECC</b>, <b>AES</b>, <b>DES</b> etc.)</p>
+                    <p class="article-body"><b>HTTPS</b> uses protocols to ensure data security : <b>SSL</b> and <b>TLS</b>. <b>SSL</b> stands for <b>Secure Socket Layer</b>. And no longer secure, so this is why back in <b>1999</b> it was updated to become <b>Transport Layer Security (TLS)</b>.</p>
+                    <img src="../images/100.svg" class="article-image" alt="Image about HTTP">
+                </div>
+            </article>
+
+        </main>
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h2 class="widget-title">CRYPTO JOKE</h2>
+                <p class="widget-body">A friend has an illness that’s given him a fever and a rash. At least his Wi-Fi is better with all the hot spots.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>World of Cryptography</strong></p>
+        <p>Copyright &copy; 2022</p>
+        <p>Made with <i class="fas fa-heart"></i> By Malik Makkes</p>
+    </footer>
+
+    <script src="../javascript/DarkMode.js"></script>
+
+    </body>
+</html>

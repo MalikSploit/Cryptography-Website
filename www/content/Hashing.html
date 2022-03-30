@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Malik Makkes">
+        <link rel="stylesheet" type="text/css" href="../style/Hashing-style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <script src="../javascript/anti-inspect.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="icon" type="image/svg" href="../images/Favicon.svg">
+        <title>Hashing Functions</title>
+    </head>
+
+    <body>
+    <noscript>
+        <div class="noscriptmsg">
+            You don't have JavaScript enabled. Please allow JavaScript.
+        </div>
+    </noscript>
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>Hashing Functions</h1>
+                <p class="subtitle">A blog about hashing functions</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <!--onclick="window.open('https://www.linkedin.com/in/khalfallah-anis/');" -->
+                    <li><a href="https://www.linkedin.com/in/malik-makkes/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://github.com/MalikSploit" target="_blank">GitHub</a></li>
+                    <li><img src="../images/moon.png" id="icon" alt="Theme"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container-flex">
+        <main role="main">
+            <article class="article-featured">
+                <h2 class="article-title">Hashing</h2>
+                <p class="article-body first">A cryptographic <b>hash function</b> is a mathematical algorithm that maps data of arbitrary size (message) to a bit array of fixed size (message digest or hash). It has no private keys here and is <b>deterministic</b> and random (pseudo-random). Furthermore all operations are public such as the <b>h(x)</b> hash-function.</p>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <img src="../images/89.svg" class="article-image" alt="images about Hashing"><br><br>
+                    <h2 class="article-title">Properties of Hashing</h2>
+                    <img src="../images/90.svg" class="article-image" alt="images about Hashing">
+                    <ol class="no-padding">
+                        <li class="liste"><span class="orange">Deterministic</span> : it mean that if we apply to same hash-function (<b>SHA256</b>) on the exact same input then the output must be the same.</li>
+                        <li class="liste"><span class="orange">One-Way</span> : it's easy to generate the hash with the given hashing algorithm but on the other hand it is extremely hard (time-consuming) to restore the original input, it's like a trap-door function.</li>
+                        <li class="liste"><span class="orange">Collision-Free</span> : There are no collisions in <b>SHA256</b> (although there are but with extremely low probability), it means that no two different inputs share the same output hash and this is perfect because we want to make these hashes unique, this is how we identify a block in the blockchain.</li>
+                        <li class="liste"><span class="orange">Avalanche Effect</span> : A little change in the input results in a completely different output hash, otherwise a cryptanalyst can make predictions about the input based on the output exclusively.</li>
+                    </ol>
+                </div>
+
+            </article>
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">MD5 Hashing Algorithm</h2>
+                    <p class="article-body"><b>MD5</b> runs entire files through a mathematical hashing algorithm to generate a <b>signature</b> that can be matched with an original file. That way, a received file can be <b>authenticated</b> as matching the original file that was sent, ensuring that the right files get where they need to go.</p>
+                    <p class="article-body">The <b>MD5</b> hashing algorithm converts data into a string of 32 characters. For example, the word <i>"This is an example"</i> always generates this hash : <b>68791e1b03badd5e4eb9287660f67745</b> Similarly, a file of <b>1.5 GB</b> also generates a hash with the same number of characters. When you send that file to someone, their computer authenticates its hash to ensure it matches the one you sent.</p>
+                    <p class="article-body">If you change just one bit in a file, no matter how large the file is, the hash output will be completely and irreversibly changed. Nothing less than an exact copy will pass the <b>MD5</b> test.</p>
+                    <img src="../images/91.svg" class="article-image line" alt="images slide">
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Applications of Hashing</h2>
+                    <img src="../images/92.svg" class="article-image line" alt="images about Hashing">
+                    <img src="../images/93.svg" class="article-image line" alt="images about Hashing">
+                    <img src="../images/94.svg" class="article-image line" alt="images about Hashing">
+                </div>
+            </article>
+
+        </main>
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h2 class="widget-title">CRYPTO JOKE</h2>
+                <p class="widget-body">What is a computer security specialist's favorite breakfast food ? Salted hash.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>World of Cryptography</strong></p>
+        <p>Copyright &copy; 2022</p>
+        <p>Made with <i class="fas fa-heart"></i> By Malik Makkes</p>
+    </footer>
+
+    <script src="../javascript/DarkMode.js"></script>
+    </body>
+</html>

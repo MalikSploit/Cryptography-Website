@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="../style/Login-SignUp-style.css"/>
+        <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="forms-container">
+                <div class="signin-signup">
+                    <form id="ajaxButton" method="post" action="../htbin/login.py" class="sign-in-form login">
+                        <h2 class="title">Sign in</h2>
+
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <label for="username" class="contenu"><input id="username" type="text" name="username" placeholder="Username" required/></label>
+                        </div>
+
+                        <div class="input-field first">
+                            <i class="fas fa-lock"></i>
+                            <label for="userpwd" class="contenu"><input id="userpwd" type="password" name="userpwd" placeholder="Password" required/></label>
+                        </div>
+
+                        <button id="myButton" type="submit" ONCLICK="submitForm()" class="btn solid" value="Login">Login</button>
+                        <input class="btn solid" type="reset" value="Reset"/>
+                        <div id="zone">
+                            <p class="message"></p>
+                        </div>
+                    </form>
+
+                    <form method="post" action="../htbin/register.py" class="sign-up-form">
+                        <h2 class="title">Sign Up</h2>
+
+                        <div class="input-field second">
+                            <i class="fas fa-user"></i>
+                            <input id="lastname" type="text" name="lastname" placeholder="Last Name" required/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-user"></i>
+                            <input id="firstname" type="text" name="firstname" placeholder="First Name" required/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-birthday-cake"></i>
+                            <input id="birthdate" type="text" name="birthdate" placeholder="mm/dd/yyyy"/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-user"></i>
+                            <input id="username2" type="text" name="username" placeholder="Username" required/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-lock"></i>
+                            <input id="userpwd2" type="password" name="userpwd" placeholder="Password" required/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-envelope"></i>
+                            <input id="useremail" type="text" name="useremail" placeholder="name@gmail.com" required/>
+                        </div>
+
+                        <button class="btn solid" type="submit2" disabled value="Sign Up">Sign Up</button>
+                        <button class="btn solid" type="reset" value="Reset">Reset</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="panels-container">
+                <div class="panel left-panel">
+                    <div class="content">
+                        <h3>New here ?</h3>
+                        <p>No problem, you can just click on Sign up below and create a new account.</p>
+                        <button class="btn transparent" id="sign-up-btn">Sign up</button>
+                    </div>
+                    <img src="../images/log.svg" class="image" alt="log"/>
+                </div>
+                <div class="panel right-panel">
+                    <div class="content">
+                        <h3>One of us ?</h3>
+                        <p>Welcome back, you can just click on Sign up and go right ahead.</p>
+                        <button class="btn transparent" id="sign-in-btn">Sign in</button>
+                    </div>
+                    <img src="../images/register.svg" class="image" alt="register"/>
+                </div>
+            </div>
+        </div>
+        <script src="../javascript/Sign-up.js"></script>
+        <script src="../javascript/Login.js"></script>
+        <script src="../javascript/Button.js"></script>
+        <script src="../javascript/Change-Page.js"></script>
+    </body>
+</html>

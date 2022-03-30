@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Malik Makkes">
+        <link rel="stylesheet" type="text/css" href="../style/Asymmetric-style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../javascript/anti-inspect.js"></script>
+        <link rel="icon" type="image/svg" href="../images/Favicon.svg">
+        <title>Asymmetric Encryption</title>
+    </head>
+
+    <body>
+    <noscript>
+        <div class="noscriptmsg">
+            You don't have JavaScript enabled. Please allow JavaScript.
+        </div>
+    </noscript>
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>Asymmetric Encryption</h1>
+                <p class="subtitle">A blog about public key cryptography</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <!--onclick="window.open('https://www.linkedin.com/in/khalfallah-anis/');" -->
+                    <li><a href="https://www.linkedin.com/in/malik-makkes/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://github.com/MalikSploit" target="_blank">GitHub</a></li>
+                    <li><img src="../images/moon.png" id="icon" alt="Theme"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container-flex">
+        <main role="main">
+            <article class="article-featured">
+                <h2 class="article-title">Public Key Cryptography</h2>
+                <p class="article-body first">This type of cryptography uses a public key and a private key as well. This is why it is also called asymmetric encryption, and we should always keep the private key secret. If <b>Alice</b> wants to send a message to <b>Bob</b> then <b>Alice</b> will encrypt it with <b>Bob’s</b> public key and <b>Bob</b> can decrypt the message with his own private key.</p>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <img src="../images/1.svg" class="article-image" alt="Image"><br><br>
+                    <h2 class="article-title">Diffie-Hellman Key Exchange</h2>
+                    <p class="article-body">The main disadvantage of private key cryptosystems <a class="article-body link" title="Date Encryption Standard or Advanced Encryption Standard" href="Symmetric.html#DES" target="_blank">(<b>DES or AES</b>)</a> is that the private key must be exchanged. Well Diffie-Hellman algorithm is able to exchange private keys over a public channel. It was invented in <b>1976</b> by Diffie, Hellman and Merkle. So this approach is not for encryption or decryption but to securely exchange the private keys for asymmetric cryptosystems. And we can create private keys separately based on modular arithmetic.</p>
+                    <p class="article-body">First we have to generate huge prime numbers <b>n</b> and <b>g</b>. However <b>g</b> must be the primitive root of <b>n</b> in other words <b>g</b> is the primitive root <b>n</b> if <b>g mod n</b>, <b>g<sup>2</sup> mod n ... g<sup>n-1</sup> mod n</b> generates all the integers within the range <b>[1, n-1]</b>.</p>
+                    <img src="../images/2.svg" class="article-image" alt="Image">
+                    <ol>
+                        <li class="liste">The sender (<b>Alice</b>) generates huge prime numbers <b>n</b> and <b>g</b> (the primitive root of <b>n</b>) and sends it to the receiver (<b>Bob</b>) (it is not a problem if someone knows these numbers). These numbers are typically > <b>1024 bits</b>.</li>
+                        <li class="liste">Both the sender and receiver generate a <b>random number &lt; n-1</b>, Alice generates <b>x</b> and Bob generates <b>y</b> (these are the private keys).</li>
+                        <li class="liste">Alice calculates <b>k<sub>1</sub> = g<sup>x</sup> mod n</b> and send it to Bob and Bob calculates <b>k<sub>2</sub> = g<sup>y</sup> mod n</b> and sends it to Alice.</li>
+                        <li class="liste">They can calculate the shared secret key : </li>
+                        <li class="liste indent">Alice calculates <b>k<sup>x</sup><sub>2</sub> mod n = (g<sup>y</sup> mod n)<sup>x</sup> mod n = <span class="article-body green">g<sup>xy</sup> mod n</span></b></li>
+                        <li class="liste indent">Bob calculates <b>k<sup>y</sup><sub>1</sub> mod n = (g<sup>x</sup> mod n)<sup>y</sup> mod n = <span class="article-body green">g<sup>yx</sup> mod n</span></b></li>
+                    </ol>
+                    <p class="article-body">It is very important to choose <b>n</b> to be prime because if <b>n</b> is not a prime number it's easier to crack Diffie-Hellman cryptosystem, and the whole cryptosystem relies heavily on the fact that solving the <a class="article-body link" title="Discrete Logarithm Explanation" href="https://en.wikipedia.org/wiki/Discrete_logarithm" target="_blank"> <b>Discrete Logarithm</b></a> problem has exponential running time complexity, so it's extremely hard to crack. However, if we use composite numbers for <b>n</b> then solving the discrete logarithm problem (cracking it) is easier because of the <a class="article-body link" title="Chinese Remainder Theorem Explanation" href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem" target="_blank"><b>Chinese Remainder Theorem</b></a>.</p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">RSA (Rivest-Shamir-Adleman) cryptosystem</h2>
+                    <p class="article-body">It is a <b>public key cryptosystem</b> (so it has a private key and a public key), it was constructed in <b>1977</b> by <b>Rivest</b>, <b>Shamir</b> and <b>Adleman</b>. Every public key cryptosystem relies heavily on a trapdoor function and <b>RSA</b> is secure because of the integer factorization problem. Which consist in validating the result by multiplying two numbers and that is easy but finding the factors is hard.</p>
+                    <p class="article-body">Let's have <b>p</b> be a prime number than for any integer <b>a</b> (<b>a</b> is not divisible by <b>p</b>) the number <b>a<sup>p-1</sup>-1</b> is an integer multiple of <b>p</b>.</p>
+                    <p><b>a<sup>p-1</sup> &#8801; 1 (mod p)</b> which is <b>Fermat's Little Theorem</b>. We can generalize this theorem with Euler's <b>Φ(n)</b> function : this totient function counts the positive integers up to a given integer <b>n</b> that are relative prime to <b>n</b> and the formula is : <b>a<sup>Φ(n)</sup> &#8801; 1 (mod p)</b>. Notably by relative prime we mean that two integers <b>a</b> and <b>b</b> are said to be relative prime or coprime if the only positive integer (factor) that divides both of them is 1 with this formula : <b>gcd(a, b) = 1</b></p>
+                    <ol>
+                        <li class="liste">
+                            We generate <b>2</b> large prime numbers <b>p</b> and <b>q</b>, for this we can use <a class="article-body link" title="Miller-Rabbin Primality Test Explanation" href="https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test" target="_blank"> <b>Rabin-Miller</b></a> very optimized algorithm to do so.
+                        </li>
+                        <li class="liste">
+                            We calculate <b>n = p * q</b> so let's multiply the prime numbers : <b>Φ(n) = (p - 1) * (q - 1)</b>
+                        </li>
+                        <li class="liste">
+                            Let's calculate the public key <b>e</b> parameter, we can calculate <b>e</b> such that <b>gcd(e, Φ(n)) = 1</b>. So basically <b>e</b> and <b>Φ(n)</b> are relative primes.
+                        </li>
+                        <li class="liste">
+                            Let's calculate the private key <b>d</b> parameter : let's calculate the modular inverse of <b>e</b> (this is why it is crucial that <b>e</b> and <b>Φ(n)</b> are coprime) :  <b>d * e mod Φ(n) = 1</b>, after solving this equation we get the <b>d</b> parameter.
+                        </li>
+                    </ol>
+                    <p>Then we have <span class="article-body green">PUBLIC KEY : (e, n)</span> and <span class="article-body green">PRIVATE KEY : (d, n)</span></p>
+                    <p>After those steps, to encrypt the message we first have to transform the plaintext into blocks (we can use <a class="article-body link" title="ASCII Table Explanation" href="https://en.wikipedia.org/wiki/ASCII" target="_blank"> <b>ASCII</b></a> table to convert text into numbers) where every block is smaller than <b>n</b> and as usual we use the public key for encryption and the private key for the decryption. That way <span class="article-body green">ciphertext_block = plaintext_block<sup>e</sup> mod n and plaintext_block = ciphertext_block<sup>d</sup> mod n</span></p>
+                    <ol>
+                        <li class="liste">
+                            We talked a lot, now let's try this in a real example, let's generate large prime numbers : <b>p = 17</b> and <b>q = 23</b>.
+                        </li>
+                        <li class="liste">
+                            Let's calculate <b>n = p * q = 17 * 23 = 391</b> so <b>Φ(17 - 1) * (23-1) = 352</b>.
+                        </li>
+                        <li class="liste">
+                            We have to find now an <b>e</b> number where <b>gcd(e, Φ(n)) = 1</b> with <a class="article-body link" title="Euclidean Algorithm Explanation" href="https://en.wikipedia.org/wiki/Euclidean_algorithm" target="_blank"><b>Euclide Algorithm</b></a> and we get <b>e = 21</b>.
+                        </li>
+                        <li class="liste">
+                            We finally have to find the modular inverse of <b>e</b> using <a class="article-body link" title="Extended Euclidean Algorithm Explanation" href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm" target="_blank"><b>Extended Euclidean Algorithm</b></a> and we get <b>d = 285</b>
+                        </li>
+                    </ol>
+                    <p>Now that we have the Public key : <b>(21, 391)</b> and Private key : <b>(285, 391)</b> we can encrypt a message.</p>
+                    <p>Let's say we have the character <b>a</b> to encrypt. The <b>ASCII</b> representation of <b>a</b> is <b>97</b>.</p>
+                    <p>Encryption <b>&#x2192; ciphertext_block = plaintext_block<sup>e</sup> mod n = 97<sup>21</sup> mod 391 = 37</b></p>
+                    <p>Decryption <b>&#x2192; plaintext_block = ciphertext_block<sup>d</sup> mod n = 37<sup>285</sup> mod 391 = 97</b></p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Elliptic Curve Cryptography (ECC)</h2>
+                    <p class="article-body">There are several problems with the <b>RSA cryptosystem</b>, <b>factorization</b> is the trapdoor-function in RSA, but it has never been proven that factorization is hard. General number field sieve (<a class="article-body link" title="GNFS Explanation" href="https://en.wikipedia.org/wiki/Special_number_field_sieve" target="_blank"><b>GNFS</b></a>) algorithm is the fastest known algorithm for prime factorization. This is why we need huge prime numbers, therefore we use at least <b>2048 bits</b> long sequences as RSA keys which is <b>512</b> hexadecimal digits. However <b>quantum computing</b> will make RSA obsolete in the future.</p>
+                    <p>The use of elliptic curves in cryptography was suggested independently by <b>Neal Koblitz</b> and <b>Victor S.Miller</b> in <b>1985</b>. It's one of the most popular <b>public key cryptosystems</b>, and <b>Bitcoin</b> uses Elliptic Curve Cryptography.</p>
+                    <img src="../images/3.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/4.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/5.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/6.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/7.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/8.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/9.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/10.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/11.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/12.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/13.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/14.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/15.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/16.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/17.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/18.svg" class="article-image line" alt="Image about ECC">
+                    <p>If we are dealing with an <b>E</b> elliptic curve defined by <b>y<sup>2</sup> = x<sup>3</sup> + ax + b</b> equation and <b>|E| = n</b> and <b>P(x, y)</b> and <b>R(x, y)</b> are points on the elliptic curve, the aim is to find <b>1 ≤ x ≤ n</b> such that <b>P + P + P + ... + P = R</b> and <b>xP = 5</b>. This is a typical trapdoor-function : we can calculate <b>xP</b> with <b>O(m)</b> linear running time complexity but (if we have <b>R</b>) we have to use brute-force approach to find <b>x</b> and it has <b>O(2<sup>m</sup>)</b> exponential running time.</p>
+                    <p>In a public key (asymmetric) cryptosystem all the users have two keys : public key and private key, these keys are not independent of each other, the private key can decrypt a message that has been encrypted with the public key and vice versa. Everyone can send an encrypted message to a given user using his/her public key and only the given user can decrypt that message using his private key.</p>
+                    <img src="../images/19.svg" class="article-image" alt="Image about ECC">
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h2 class="widget-title">CRYPTO JOKE</h2>
+                <p class="widget-body">Ironic that so many cryptographers have thick beards, You wouldn't think they'd go for security by obscurity.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>World of Cryptography</strong></p>
+        <p>Copyright &copy; 2022</p>
+        <p>Made with <i class="fas fa-heart"></i> By Malik Makkes</p>
+    </footer>
+
+    <script src="../javascript/DarkMode.js"></script>
+    </body>
+</html>
