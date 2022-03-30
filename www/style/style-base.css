@@ -59,7 +59,7 @@ acronym
     border-bottom: none;
 }
 
-/** $intro */
+/** intro */
 
 h1,
 h2,
@@ -112,7 +112,7 @@ a
     transition: all 0.5s ease-out;
 }
 
-/** $main */
+/* main */
 
 .login,
 .linkedin,
@@ -148,7 +148,7 @@ footer a::after
     line-height: 21px;
 }
 
-/** $sidebar */
+/* sidebar */
 
 .wrapper li
 {
