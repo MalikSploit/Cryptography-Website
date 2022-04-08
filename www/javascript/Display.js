@@ -1,2 +1,1 @@
-const div = document.querySelector('div');
-div.classList.remove('no-display');
+const div=document.querySelector("div");div.classList.remove("no-display");
