@@ -329,6 +329,11 @@ input:focus.invalid
     font-family: 'Poppins', sans-serif;
 }
 
+.noscriptmsg
+{
+    text-align: center;
+}
+
 @media (max-width: 691px)
 {
     form

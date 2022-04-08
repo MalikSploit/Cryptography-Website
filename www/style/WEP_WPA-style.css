@@ -291,6 +291,12 @@ body, header
     }
 }
 
+.noscriptmsg
+{
+    text-align: center;
+}
+
+
 @media (max-width: 800px)
 {
     .article-image

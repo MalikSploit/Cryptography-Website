@@ -9,8 +9,21 @@
         <link rel="icon" type="image/svg" href="../images/Favicon.svg">
         <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     </head>
+
     <body>
-        <div class="container">
+        <noscript>
+            <style>
+                .pagecontainer
+                {
+                    display:none;
+                }
+            </style>
+            <div class="noscriptmsg">
+                You don't have JavaScript enabled. Please allow JavaScript.
+            </div>
+        </noscript>
+
+        <div class="container pagecontainer">
             <div class="forms-container">
                 <div class="signin-signup">
                     <form id="ajaxButton" method="post" action="../htbin/login.py" class="sign-in-form login">

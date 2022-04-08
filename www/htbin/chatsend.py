@@ -46,4 +46,3 @@ else:
 	data_file.write('\n')
 	data_file.close()
 	print((json.dumps(dict({'num': 0,'msg':'Message envoyé.'}))))
-
