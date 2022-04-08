@@ -334,6 +334,11 @@ input:focus.invalid
     text-align: center;
 }
 
+.no-display
+{
+    display: none;
+}
+
 @media (max-width: 691px)
 {
     form

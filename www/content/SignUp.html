@@ -12,18 +12,12 @@
 
     <body>
         <noscript>
-            <style>
-                .pagecontainer
-                {
-                    display:none;
-                }
-            </style>
             <div class="noscriptmsg">
                 You don't have JavaScript enabled. Please allow JavaScript.
             </div>
         </noscript>
 
-        <div class="container pagecontainer">
+        <div class="container no-display">
             <div class="forms-container">
                 <div class="signin-signup">
                     <form id="ajaxButton" method="post" action="../htbin/login.py" class="sign-in-form login">
@@ -79,6 +73,7 @@
                             <input id="useremail" type="text" name="useremail" placeholder="name@gmail.com" required/>
                         </div>
 
+                        <!-- Il faut utiliser submit2 pour que le javascript (EventListener) sache connaitre la difference entre les deux boutons -->
                         <button class="btn solid" type="submit2" disabled value="Sign Up">Sign Up</button>
                         <button class="btn solid" type="reset" value="Reset">Reset</button>
                     </form>
@@ -104,6 +99,7 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="../javascript/Display.js"></script>
         <script type="text/javascript" src="../javascript/Sign-up.js"></script>
         <script type="text/javascript" src="../javascript/Login.js"></script>
         <script type="text/javascript" src="../javascript/Button.js"></script>

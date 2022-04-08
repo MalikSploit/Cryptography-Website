@@ -12,18 +12,12 @@
 
     <body>
         <noscript>
-            <style>
-                .pagecontainer
-                {
-                    display:none;
-                }
-            </style>
             <div class="noscriptmsg">
                 You don't have JavaScript enabled. Please allow JavaScript.
             </div>
         </noscript>
 
-        <div class="container pagecontainer">
+        <div class="container no-display">
             <div class="forms-container">
                 <div class="signin-signup">
                     <form id="ajaxButton" method="post" action="../htbin/login.py" class="sign-in-form login">
@@ -61,28 +55,24 @@
 
                         <div class="input-field second">
                             <i class="fas fa-birthday-cake"></i>
-<!--                            <label for="birthdate"></label>-->
                             <input id="birthdate" type="text" name="birthdate" placeholder="mm/dd/yyyy"/>
                         </div>
 
                         <div class="input-field second">
                             <i class="fas fa-user"></i>
-<!--                            <label for="username2"></label>-->
                             <input id="username2" type="text" name="username" placeholder="Username" required/>
                         </div>
 
                         <div class="input-field second">
                             <i class="fas fa-lock"></i>
-<!--                            <label for="userpwd2"></label>-->
                             <input id="userpwd2" type="password" name="userpwd" placeholder="Password" required/>
                         </div>
 
                         <div class="input-field second">
                             <i class="fas fa-envelope"></i>
-<!--                            <label for="useremail"></label>-->
                             <input id="useremail" type="text" name="useremail" placeholder="name@gmail.com" required/>
                         </div>
-
+                        <!-- Il faut utiliser submit2 pour que le javascript (EventListener) sache connaitre la difference entre les deux boutons -->
                         <button class="btn solid" type="submit2" disabled>Sign Up</button>
                         <input class="btn solid" type="reset" value="Reset"/>
                     </form>
@@ -110,6 +100,7 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="../javascript/Display.js"></script>
         <script type="text/javascript" src="../javascript/Sign-up.js"></script>
         <script type="text/javascript" src="../javascript/Login.js"></script>
         <script type="text/javascript" src="../javascript/Button.js"></script>

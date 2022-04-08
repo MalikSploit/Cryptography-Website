@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html lang="en">
    <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <title>ChatBox</title>
        <link rel="stylesheet" href="../style/chatbox-style.css"/>
@@ -7,19 +9,13 @@
    </head>
 	
    <body>
-       <noscript>
-           <style>
-               .pagecontainer
-               {
-                   display:none;
-               }
-           </style>
-           <div class="noscriptmsg">
-               You don't have JavaScript enabled. Please allow JavaScript.
-           </div>
-       </noscript>
+        <noscript>
+            <div class="noscriptmsg">
+                You don't have JavaScript enabled. Please allow JavaScript.
+            </div>
+        </noscript>
 
-        <div class="container pagecontainer">
+        <div class="container no-display">
             <div class="chat-box">
                 <div class="client">
                     <img src="../images/Favicon.svg" alt="logo"/>
@@ -50,8 +46,10 @@
                 <a href="../index.html">Home Page</a>
             </footer>
         </div>
-     
-        <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+        <script type="text/javascript" src="../javascript/Display.js"></script>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="../javascript/chatbox.js"></script>
-    </body>
+        <script type="text/javascript" src="../javascript/anti-inspect.js"></script>
+   </body>
 </html>

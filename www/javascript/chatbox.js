@@ -7,7 +7,7 @@ $('#searchForm').submit(function(event)
         user: $form.find( "input[name='user']").val(),
         msg: $form.find( "input[name='message']").val()
     }
-    , function(data, status) {
+    , function() {
         window.location.reload();
     },"json" );
 });
