@@ -113,7 +113,7 @@ form.sign-up-form
 
 .contenu
 {
-    padding-top: 13px;
+    padding-top: 15px;
 }
 
 .input-field input::placeholder
@@ -351,7 +351,7 @@ input:focus.invalid
         justify-content: center;
         flex-direction: column;
         /*overflow: hidden;*/
-        padding: 0 0.1rem;
+        padding: 0 1.1rem;
         margin-left: -100px;
         grid-column: 1 / 2;
         grid-row: 1 / 2;
@@ -361,7 +361,7 @@ input:focus.invalid
     .right-panel
     {
         pointer-events: none;
-        padding: 0rem 0% 5rem 35%;
+        padding: 0 0 5rem 35%;
     }
 
     .container:before
@@ -393,6 +393,13 @@ input:focus.invalid
     .left-panel
     {
         pointer-events: all;
-        padding: 0rem 34% 11rem 2%;
+        padding: 0 34% 12rem 2%;
+    }
+
+    .panel h3
+    {
+        font-weight: 600;
+        line-height: 1;
+        font-size: 1.3rem;
     }
 }

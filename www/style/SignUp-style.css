@@ -344,7 +344,7 @@ input:focus.invalid
     form
     {
         display: flex;
-        width: 275px;
+        width: 228px;
         /*Distributes Flex-items along the Cross Axis */
         align-items: center;
         /*Distributes Flex-items along the Main Axis */
@@ -360,7 +360,7 @@ input:focus.invalid
     .right-panel
     {
         pointer-events: none;
-        padding: 0 0 5rem 35%;
+        padding: 0 0 9rem 35%;
     }
 
     .container:before
@@ -392,6 +392,13 @@ input:focus.invalid
     .left-panel
     {
         pointer-events: all;
-        padding: 0 34% 11rem 2%;
+        padding: 0 34% 6rem 2%;
+    }
+
+    .panel h3
+    {
+        font-weight: 600;
+        line-height: 1;
+        font-size: 1.3rem;
     }
 }
