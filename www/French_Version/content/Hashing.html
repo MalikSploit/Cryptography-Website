@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Malik Makkes">
+        <link rel="stylesheet" type="text/css" href="../../style/Hashing-style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../javascript/anti-inspect.js"></script>
+        <link rel="icon" type="image/svg" href="../../images/Favicon.svg">
+        <title>Fonctions de hachage</title>
+    </head>
+
+    <body>
+    <noscript>
+        <div class="noscriptmsg">
+            Vous n'avez pas activé JavaScript. Veuillez activer JavaScript.
+        </div>
+    </noscript>
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>Fonctions de hachage</h1>
+                <p class="subtitle">Un blog sur les fonctions de hachage</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="https://www.linkedin.com/in/malik-makkes/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://github.com/MalikSploit" target="_blank">GitHub</a></li>
+                    <li><img src="../../images/moon.png" id="icon" alt="Theme"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container-flex">
+        <main role="main">
+            <article class="article-featured">
+                <h2 class="article-title">Hachage</h2>
+                <p class="article-body first">Une <b>fonction de hachage</b> cryptographique est un algorithme mathématique qui mappe des données de taille arbitraire (message) à un tableau de bits de taille fixe (résumé de message ou hachage). Il n'a pas de clés privées ici et est <b>déterministe</b> et aléatoire (pseudo-aléatoire). De plus, toutes les opérations sont publiques, comme la fonction de hachage <b>h(x)</b>.</p>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <img src="../images/89.svg" class="article-image" alt="images about Hashing"><br><br>
+                    <h2 class="article-title">Propriétés du hachage</h2>
+                    <img src="../images/90.svg" class="article-image" alt="images about Hashing">
+                    <ol class="no-padding">
+                        <li class="liste"><span class="orange">Déterministe</span> : cela signifie que si nous appliquons la même fonction de hachage (<b>SHA256</b>) sur exactement la même entrée, alors le la sorti doit être la même.</li>
+                        <li class="liste"><span class="orange">Sens Unique</span> : il est facile de générer le hash avec l'algorithme de hachage donné, mais en revanche il est extrêmement difficile (long) de restaurer l'entrée d'origine, c'est comme une fonction de trappe.</li>
+                        <li class="liste"><span class="orange">Sans collision</span> : Il n'y a pas de collisions dans <b>SHA256</b> (bien qu'il y en ait, mais avec une probabilité extrêmement faible), cela signifie que deux entrées différentes ne partagent pas le même hachage de sortie et c'est parfait, car nous voulons rendre ces hachages uniques, c'est ainsi que nous identifions un bloc dans la blockchain.</li>
+                        <li class="liste"><span class="orange">Effet d'avalanche</span> : un petit changement dans l'entrée entraîne un hachage de sortie complètement différent, sinon un cryptanalyste peut faire des prédictions sur l'entrée en fonction de la sortie exclusivement.</li>
+                    </ol>
+                </div>
+
+            </article>
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Algorithme de hachage MD5</h2>
+                    <p class="article-body"><b>MD5</b> exécute des fichiers entiers via un algorithme de hachage mathématique pour générer une <b>signature</b> qui peut être mise en correspondance avec un fichier original. De cette façon, un fichier reçu peut être <b>authentifié</b> comme correspondant au fichier d'origine qui a été envoyé, garantissant que les bons fichiers arrivent là où ils doivent aller.</p>
+                    <p class="article-body">L'algorithme de hachage <b>MD5</b> convertit les données en une chaîne de 32 caractères. Par exemple, le mot <i>"This is an example"</i> génère toujours ce hash : <b>68791e1b03badd5e4eb9287660f67745</b> De même, un fichier de <b>1.5 Go</b> génère également un hash avec le même nombre de caractères. Lorsque vous envoyez ce fichier à quelqu'un, son ordinateur authentifie son hachage pour s'assurer qu'il correspond à celui que vous avez envoyé.</p>
+                    <p class="article-body">Si vous modifiez un seul bit dans un fichier, quelle que soit sa taille, la sortie de hachage sera complètement et irréversiblement modifiée. Rien de moins qu'une copie exacte passera le test <b>MD5</b>.</p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Applications du hachage</h2>
+                    <img src="../images/92.svg" class="article-image line" alt="images about Hashing">
+                    <img src="../images/93.svg" class="article-image line" alt="images about Hashing">
+                    <img src="../images/94.svg" class="article-image line" alt="images about Hashing">
+                </div>
+            </article>
+
+        </main>
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h2 class="widget-title">Blague Crypto</h2>
+                <p class="widget-body">Quel est le petit-déjeuner préféré des spécialistes de la sécurité informatique ? Un Hash salé.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>Monde de la Crypto</strong></p>
+        <p>Copyright &copy; 2022</p>
+        <p>Fait avec <i class="fas fa-heart"></i> Par Malik Makkes</p>
+    </footer>
+
+    <script src="../../javascript/DarkMode.js"></script>
+    </body>
+</html>

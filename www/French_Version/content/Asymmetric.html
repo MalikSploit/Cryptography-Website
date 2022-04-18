@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Malik Makkes">
+        <link rel="stylesheet" type="text/css" href="../../style/Asymmetric-style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../javascript/anti-inspect.js"></script>
+        <link rel="icon" type="image/svg" href="../../images/Favicon.svg">
+        <title>Cryptage Asymétrique</title>
+    </head>
+
+    <body>
+    <noscript>
+        <div class="noscriptmsg">
+            Vous n'avez pas activé JavaScript. Veuillez activer JavaScript.
+        </div>
+    </noscript>
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>Cryptage Asymétrique</h1>
+                <p class="subtitle">Un blog sur la cryptographie à clé publique</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="https://www.linkedin.com/in/malik-makkes/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://github.com/MalikSploit" target="_blank">GitHub</a></li>
+                    <li><img src="../../images/moon.png" id="icon" alt="Theme"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container-flex">
+        <main role="main">
+            <article class="article-featured">
+                <h2 class="article-title">Cryptage à clé publique</h2>
+                <p class="article-body first">Ce type de cryptographie utilise également une clé publique et une clé privée. C'est pourquoi on l'appelle aussi cryptage asymétrique, et nous devons toujours garder la clé privée secrète. Si <b>Alice</b> veut envoyer un message à <b>Bob</b> alors <b>Alice</b> le chiffrera avec la clé publique de <b>Bob</b> et <b>Bob</b> peut déchiffrer le message avec sa propre clé privée.</p>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <img src="../images/1.svg" class="article-image" alt="Image"><br><br>
+                    <h2 class="article-title">Échange de Clés Diffie-Hellman</h2>
+                    <p class="article-body">Le principal inconvénient des cryptosystèmes à clé privée <a class="article-body link" title="Date Encryption Standard ou Advanced Encryption Standard" href="Symmetric.html#DES" target=" _blank">(<b>DES ou AES</b>)</a> est que la clé privée doit être échangée. Eh bien, l'algorithme Diffie-Hellman est capable d'échanger des clés privées sur un canal public. Il a été inventé en <b>1976</b> par Diffie, Hellman et Merkle. Cette approche n'est donc pas destinée au chiffrement ou au déchiffrement, mais à l'échange sécurisé des clés privées pour les cryptosystèmes asymétriques. Et nous pouvons créer des clés privées séparément basées sur l'arithmétique modulaire.</p>
+                    <p class="article-body">Nous devons d'abord générer d'énormes nombres premiers <b>n</b> et <b>g</b>. Cependant <b>g</b> doit être la racine primitive de <b>n</b> autrement dit <b>g</b> est la racine primitive <b>n</b> si <b> g mod n</b>, <b>g<sup>2</sup> mod n ... g<sup>n-1</sup> mod n</b> génère tous les entiers compris dans l'intervalle <b>[1, n-1]</b>.</p>
+                    <img src="../images/2.svg" class="article-image" alt="Image">
+                    <ol>
+                        <li class="liste">L'expéditeur (<b>Alice</b>) génère d'énormes nombres premiers <b>n</b> et <b>g</b> (la racine primitive de <b>n </b>) et l'envoie au destinataire (<b>Bob</b>) (ce n'est pas un problème si quelqu'un connaît ces numéros). Ces nombres sont typiquement > <b>1024 bits</b>.</li>
+                        <li class="liste">L'expéditeur et le destinataire génèrent tous deux un <b>nombre aléatoire &lt; n-1</b>, Alice génère <b>x</b> et Bob génère <b>y</b> (ce sont les clés privées).</li>
+                        <li class="liste">Alice calcule <b>k<sub>1</sub> = g<sup>x</sup> mod n</b> et l'envoie à Bob et Bob calcule <b>k<sub>2</sub> = g<sup>y</sup> mod n</b> et l'envoie à Alice.</li>
+                        <li class="liste">Ils peuvent calculer la clé secrète partagée : </li>
+                        <li class="liste indent">Alice calcule <b>k<sup>x</sup><sub>2</sub> mod n = (g<sup>y</sup> mod n)<sup>x</sup> mod n = <span class="article-body green">g<sup>xy</sup> mod n</span></b></li>
+                        <li class="liste indent">Bob calcule <b>k<sup>y</sup><sub>1</sub> mod n = (g<sup>x</sup> mod n)<sup>y</sup> mod n = <span class="article-body green">g<sup>yx</sup> mod n</span></b></li>
+                    </ol>
+                    <p class="article-body">Il est très important de choisir <b>n</b> comme nombre premier car si <b>n</b> n'est pas un nombre premier, il est plus facile de craquer le cryptosystème Diffie-Hellman, et l'ensemble du cryptosystème repose fortement sur le fait que la résolution du <a class="article-body link" title="Logarithm Discret Explication" href="https://fr.wikipedia.org/wiki/Logarithme_discret" target=" _blank"> <b>Problème du logarithme discret</b></a> a une complexité de temps d'exécution exponentielle, il est donc extrêmement difficile à déchiffrer. Cependant, si nous utilisons des nombres composés pour <b>n</b>, résoudre le problème du logarithme discret (le casser) est plus facile grâce à la <a class="article-body link" title="Théorème des Restes Chinois Explication" href ="https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_des_restes_chinois" target="_blank"><b>Théorème des restes chinois</b></a>.</p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Cryptosystème RSA (Rivest-Shamir-Adleman)</h2>
+                    <p class="article-body">C'est un <b>cryptosystème à clé publique</b> (il a donc une clé privée et une clé publique), il a été construit en <b>1977</b> par <b>Rivest</b>, <b>Shamir</b> et <b>Adleman</b>. Chaque cryptosystème à clé publique s'appuie fortement sur une fonction de trappe et <b>RSA</b> est sécurisé en raison du problème de factorisation des nombres entiers. Qui consiste à valider le résultat en multipliant deux nombres et c'est facile, mais trouver les facteurs est difficile.</p>
+                    <p class="article-body">Soit <b>p</b> un nombre premier alors pour tout entier <b>a</b> (<b>a</b> n'est pas divisible par <b>p</b>) le nombre <b>a<sup>p-1</sup>-1</b> est un multiple entier de <b>p</b>.</p>
+                    <p><b>a<sup>p-1</sup> &#8801; 1 (mod p)</b> qui est le <b>petit théorème de Fermat</b>. On peut généraliser ce théorème avec la fonction <b>Φ(n)</b> d'Euler : cette fonction totient compte les entiers positifs jusqu'à un entier donné <b>n</b> qui sont premiers relatifs à <b>n</b> et la formule est : <b>a<sup>Φ(n)</sup> &#8801; 1 (mod p)</b>. Notamment par premier relatif, nous entendons que deux entiers <b>a</b> et <b>b</b> sont dits premiers ou premiers entre eux si le seul entier positif (facteur) qui les divise tous les deux est 1 avec cette formule : <b>pgcd(a, b) = 1</b></p>
+                    <ol>
+                        <li class="liste">
+                            Nous générons <b>2</b> grands nombres premiers <b>p</b> et <b>q</b>, pour cela nous pouvons utiliser <a class="article-body link" title="Explication du test de primalité de Rabbin Miller" href="https://fr.wikipedia.org/wiki/Test_de_primalit%C3%A9_de_Miller-Rabin" target="_blank"> <b>Rabin-Miller</b></a> un algorithme très optimisé pour le faire.
+                        </li>
+                        <li class="liste">
+                            On calcule <b>n = p * q</b> donc multiplions les nombres premiers : <b>Φ(n) = (p - 1) * (q - 1)</b>
+                        </li>
+                        <li class="liste">
+                            Calculons le paramètre de clé publique <b>e</b>, nous pouvons calculer <b>e</b> tel que <b>gcd(e, Φ(n)) = 1</b>. Donc, fondamentalement, <b>e</b> et <b>Φ(n)</b> sont des nombres premiers relatifs.
+                        </li>
+                        <li class="liste">
+                            Calculons le paramètre <b>d</b> de la clé privée : calculons l'inverse modulaire de <b>e</b> (c'est pour cela qu'il est crucial que <b>e</b> et <b>Φ (n)</b> soient premiers) : <b>d * e mod Φ(n) = 1</b>, après avoir résolu cette équation, nous obtenons le paramètre <b>d</b>.
+                        </li>
+                    </ol>
+                    <p>Ensuite, nous avons : <span class="article-body green">CLÉ PUBLIQUE : (e, n)</span> et <span class="article-body green">CLÉ PRIVÉE : (d, n)</span></p>
+                    <p>Après ces étapes, pour chiffrer le message, nous devons d'abord transformer le texte brut en blocs (nous pouvons utiliser <a class="article-body link" title="ASCII Table Explanation" href="https://fr.wikipedia.org/wiki/ASCII_%C3%A9tendu" target="_blank"> <b>La Table ASCII</b></a> pour convertir du texte en nombres) où chaque bloc est plus petit que <b>n</b> et comme d'habitude nous utilisons la clé publique pour le chiffrement et la clé privée pour le déchiffrement. De cette façon <span class="article-body green">ciphertext_block = plaintext_block<sup>e</sup> mod n et plaintext_block = ciphertext_block<sup>d</sup> mod n</span></p>
+                    <ol>
+                        <li class="liste">
+                            Nous avons beaucoup parlé de la théorie, maintenant essayons ceci dans un exemple réel, générons de grands nombres premiers : <b>p = 17</b> et <b>q = 23</b>.
+                        </li>
+                        <li class="liste">
+                            Calculons <b>n = p * q = 17 * 23 = 391</b> donc <b>Φ(17 - 1) * (23-1) = 352</b>.
+                        </li>
+                        <li class="liste">
+                            Nous devons maintenant trouver un nombre <b>e</b> où <b>gcd(e, Φ(n)) = 1</b> avec <a class="article-body link" title="Explication de l'Algorithme D'Euclide" href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide" target="_blank"><b>L'Algorithme d'Euclide</b></a> et nous obtenons <b>e = 21</b >.
+                        </li>
+                        <li class="liste">
+                            Nous devons enfin trouver l'inverse modulaire de <b>e</b> en utilisant <a class="article-body link" title="Explication de l'Algorithme d'Euclide Étendu" href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide_%C3%A9tendu" target="_blank"><b>L'Algorithme d'Euclide Étendu</b></a> et nous obtenons <b>d = 285</b>.
+                        </li>
+                    </ol>
+                    <p>Maintenant que nous avons la clé publique : <b>(21, 391)</b> et la clé privée: <b>(285, 391)</b> nous pouvons chiffrer un message.</p>
+                    <p>Disons que nous avons le caractère <b>a</b> à chiffrer. La représentation <b>ASCII</b> de <b>a</b> est <b>97</b>.</p>
+                    <p>Cryptage <b>&#x2192; ciphertext_block = plaintext_block<sup>e</sup> mod n = 97<sup>21</sup> mod 391 = 37</b></p>
+                    <p>Décryptage <b>&#x2192; plaintext_block = ciphertext_block<sup>d</sup> mod n = 37<sup>285</sup> mod 391 = 97</b></p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Cryptographie à Courbe Elliptique (ECC)</h2>
+                    <p class="article-body">Il y a plusieurs problèmes avec le <b>cryptosystème RSA</b>, la <b>factorisation</b> est la fonction trappe dans RSA, mais il n'a jamais été prouvé que la factorisation est difficile. General number field sieve (<a class="article-body link" title="GNFS Explication" href="https://fr.wikipedia.org/wiki/Crible_alg%C3%A9brique" target="_blank"><b>GNFS</b></a>) est l'algorithme connu le plus rapide pour la factorisation en nombres premiers. C'est pour cela nous avons besoin d'énormes nombres premiers, c'est pourquoi nous utilisons des séquences longues d'au moins <b>2048 bits</b> comme clés RSA, soit <b>512</b> chiffres hexadécimaux. Cependant, l'<b>informatique quantique</b> rendra RSA obsolète à l'avenir.</p>
+                    <p>L'utilisation des courbes elliptiques en cryptographie a été suggérée indépendamment par <b>Neal Koblitz</b> et <b>Victor S.Miller</b> en <b>1985</b>. C'est l'un des <b>cryptosystèmes à clé publique</b> les plus populaires, et <b>Bitcoin</b> utilise la cryptographie à courbe elliptique.</p>
+                    <img src="../images/3.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/4.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/5.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/6.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/7.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/8.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/9.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/11.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/12.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/13.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/14.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/15.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/16.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/17.svg" class="article-image line" alt="Image about ECC">
+                    <img src="../images/18.svg" class="article-image line" alt="Image about ECC">
+                    <p>Si nous avons affaire à une courbe elliptique <b>E</b> définie par <b>y<sup>2</sup> = x<sup>3</sup> + ax + b</b> équation et <b>|E| = n</b> et <b>P(x, y)</b> et <b>R(x, y)</b> sont des points sur la courbe elliptique, le but est de trouver <b>1 ≤ x ≤ n</b> tel que <b>P + P + P + ... + P = R</b> et <b>xP = 5</b>. C'est une trappe-fonction typique : nous pouvons calculer <b>xP</b> avec <b>O(m)</b> complexité de temps d'exécution linéaire mais (si nous avons <b>R</b>) nous devons utiliser une approche par force brute pour trouver <b>x</b> et il a <b>O(2<sup>m</sup>)</b> temps d'exécution exponentiel.</p>
+                    <p>Dans un cryptosystème à clé publique (asymétrique) tous les utilisateurs ont deux clés : la clé publique et la clé privée, ces clés ne sont pas indépendantes l'une de l'autre, la clé privée peut déchiffrer un message qui a été chiffré avec la clé publique et vice-versa versa. Tout le monde peut envoyer un message chiffré à un utilisateur donné à l'aide de sa clé publique et seul l'utilisateur donné peut déchiffrer ce message à l'aide de sa clé privée.</p>
+                    <img src="../images/19.svg" class="article-image" alt="Image about ECC">
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h2 class="widget-title">Blague Crypto</h2>
+                <p class="widget-body">Ironique que tant de cryptographes aient une barbe épaisse, vous ne penseriez pas qu'ils opteraient pour la sécurité par l'obscurité.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>Monde de la Crypto</strong></p>
+        <p>Copyright &copy; 2022</p>
+        <p>Fait avec <i class="fas fa-heart"></i> Par Malik Makkes</p>
+    </footer>
+
+    <script src="../../javascript/DarkMode.js"></script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <meta name="author" content="Malik Makkes">
+       <title>ChatBox</title>
+       <link rel="stylesheet" href="../../style/chatbox-style.css"/>
+       <link rel="icon" type="image/svg" href="../../images/Favicon.svg">
+   </head>
+
+   <body>
+        <noscript>
+            <div class="noscriptmsg">
+                Vous n'avez pas activé JavaScript. Veuillez activer JavaScript.
+            </div>
+        </noscript>
+
+        <div class="container no-display">
+            <div class="chat-box">
+                <div class="client">
+                    <img src="../../images/Favicon.svg" alt="logo"/>
+                    <div class="client-info">
+                        <h2>Message</h2>
+                        <p>en ligne</p>
+                    </div>
+                </div>
+
+                <div class="chats" id="message">
+                    <div class="client-chat">Salut!</div>
+                    <div class="client-chat">Veuillez saisir votre nom d'utilisateur puis votre message</div>
+                    <div class="client-chat">J'espère que vous avez créé un compte avant, sinon vous pouvez simplement cliquer sur : <a href="SignUp.html">S'inscrire</a></div>
+                </div>
+
+                <div class="chat-input" id="chatbox">
+                    <form action="../../htbin/chatsend.py" method="post" id="searchForm" class="chat-input">
+                        <input type="text" name="user" placeholder="Nom d'utilisateur">
+                        <input type="text" name="message" placeholder="Saisir Message">
+                        <button class="send-btn" type="submit"><img src="../../images/send.png" alt="send-btn">
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="chat-btn"><img src="../../images/Circle-icons-chat.svg.png" alt="chat box icon btn"></div>
+
+            <footer>
+                <a href="../index.html">Page d'accueil</a>
+            </footer>
+        </div>
+
+        <script type="text/javascript" src="../../javascript/Display.js"></script>
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="../../javascript/chatbox.js"></script>
+        <script type="text/javascript" src="../../javascript/anti-inspect.js"></script>
+   </body>
+</html>

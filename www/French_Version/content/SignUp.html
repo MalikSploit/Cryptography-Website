@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="author" content="Malik Makkes">
+        <title>Inscription</title>
+        <link rel="stylesheet" href="../../style/SignUp-style.css"/>
+        <link rel="icon" type="image/svg" href="../../images/Favicon.svg">
+        <script type="text/javascript" src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <noscript>
+            <div class="noscriptmsg">
+                Vous n'avez pas activé JavaScript. Veuillez activer JavaScript.
+            </div>
+        </noscript>
+
+        <div class="container no-display">
+            <div class="forms-container">
+                <div class="signin-signup">
+                    <form id="ajaxButton" method="post" action="../../htbin/login.py" class="sign-in-form login">
+                        <h2 class="title">Connexion</h2>
+
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <label for="username" class="contenu"><input id="username" type="text" name="username" placeholder="Nom d'utilisateur" required/></label>
+                        </div>
+
+                        <div class="input-field first">
+                            <i class="fas fa-lock"></i>
+                            <label for="userpwd" class="contenu"><input id="userpwd" type="password" name="userpwd" placeholder="Mot de passe" required/></label>
+                        </div>
+
+                        <button id="myButton" type="submit" ONCLICK="submitForm()" class="btn solid" value="Login">Connexion</button>
+                        <input class="btn solid" type="reset" value="Réinitialiser"/>
+                        <div id="zone">
+                            <p class="message"></p>
+                        </div>
+                    </form>
+
+                    <form method="post" action="../../htbin/register.py" class="sign-up-form">
+                        <h2 class="title">S'inscrire</h2>
+
+                        <div class="input-field second">
+                            <i class="fas fa-user"></i>
+                            <input id="lastname" type="text" name="lastname" placeholder="Nom de famille" required/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-user"></i>
+                            <input id="firstname" type="text" name="firstname" placeholder="Prénom" required/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-birthday-cake"></i>
+                            <input id="birthdate" type="text" name="birthdate" placeholder="dd/mm/yyyy"/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-user"></i>
+                            <input id="username2" type="text" name="username" placeholder="Nom d'utilisateur" required/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-lock"></i>
+                            <input id="userpwd2" type="password" name="userpwd" placeholder="Mot de passe" required/>
+                        </div>
+
+                        <div class="input-field second">
+                            <i class="fas fa-envelope"></i>
+                            <input id="useremail" type="text" name="useremail" placeholder="nom@gmail.com" required/>
+                        </div>
+
+                        <!-- Il faut utiliser submit2 pour que le javascript (EventListener) sache connaitre la difference entre les deux boutons -->
+                        <button class="btn solid" type="submit2" disabled value="Sign Up">S'inscrire</button>
+                        <button class="btn solid" type="reset" value="Reset">Réinitialiser</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="panels-container">
+                <div class="panel left-panel">
+                    <div class="content">
+                        <h3>Nouveau Ici ?</h3>
+                        <p>Pas de problème, vous pouvez simplement cliquer sur S'inscrire ci-dessous et créer un nouveau compte.</p>
+                        <button class="btn transparent" id="sign-up-btn">S'inscrire</button>
+                    </div>
+                    <img src="../../images/log.svg" class="image" alt="log"/>
+                </div>
+                <div class="panel right-panel">
+                    <div class="content">
+                        <h3>Un de nous ?</h3>
+                        <p>Bienvenue à nouveau, vous pouvez simplement cliquer sur Se connecter et continuer.</p>
+                        <button class="btn transparent" id="sign-in-btn">Se Connecter</button>
+                    </div>
+                    <img src="../../images/register.svg" class="image" alt="register"/>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../../javascript/Display.js"></script>
+        <script type="text/javascript" src="../../javascript/Sign-up.js"></script>
+        <script type="text/javascript" src="../../javascript/Login.js"></script>
+        <script type="text/javascript" src="../../javascript/Button.js"></script>
+        <script type="text/javascript" src="../../javascript/Change-Page.js"></script>
+        <script type="text/javascript" src="../../javascript/anti-inspect.js"></script>
+    </body>
+</html>

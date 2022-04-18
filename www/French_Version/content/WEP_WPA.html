@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Malik Makkes">
+        <link rel="stylesheet" type="text/css" href="../../style/WEP_WPA-style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../javascript/anti-inspect.js"></script>
+        <link rel="icon" type="image/svg" href="../../images/Favicon.svg">
+        <title>WEP et WPA</title>
+    </head>
+
+    <body>
+    <noscript>
+        <div class="noscriptmsg">
+            Vous n'avez pas activé JavaScript. Veuillez activer JavaScript.
+        </div>
+    </noscript>
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>Accès Wi-Fi protégé</h1>
+                <p class="subtitle">Un blog sur les cryptosystèmes liés au Wi-Fi</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="https://www.linkedin.com/in/malik-makkes/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://github.com/MalikSploit" target="_blank">GitHub</a></li>
+                    <li><img src="../../images/moon.png" id="icon" alt="Theme"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container-flex">
+        <main role="main">
+            <article class="article-featured">
+                <h2 class="article-title">Introduction</h2>
+                <p class="article-body first">Vous pouvez <b>vous connecter à un routeur sans fil avec plusieurs appareils</b> (PC, ordinateur portable ou smartphones également). Un routeur sans fil est un appareil qui remplit les fonctions d'un routeur, ce qui signifie qu'il est utilisé pour <b>fournir un accès à Internet</b> ou à un réseau informatique privé.</p>            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <img src="../images/95.svg" class="article-image line height" alt="Image about Wi-Fi">
+                    <h2 class="article-title height">Wired Equivalent Privacy and Wi-Fi Protected Access</h2>
+                    <p class="article-body"><b>Wired Equivalent Privacy</b> est un algorithme de sécurité pour les réseaux sans fil conçu en <b>1999</b>.</p>
+                    <p class="article-body">C'est un <b>système de cryptographie à clé privée</b> (cryptage symétrique). La taille de la clé était de <b>64</b> bits au lieu de <b>128</b> bits, bien que le <a class="article-body link" title="Explication de Vecteur d'initialisation" href="https://fr.wikipedia.org/wiki/Vecteur_d%27initialisation" target="_blank"> <b>Vecteur d'initialisation (VI)</b></a> fait partie de la clé privée qui occupe <b>24</b> bits</p>
+                    <img src="../images/96.svg" class="article-image line" alt="Image about Wi-Fi">
+                    <img src="../images/97.svg" class="article-image line" alt="Image about Wi-Fi">
+                    <img src="../images/98.svg" class="article-image" alt="Image about Wi-Fi">
+                    <p class="article-body"><b>Wi-Fi Protected Access</b> (WPA) est un algorithme de sécurité pour les réseaux sans fil conçu en <b>2003</b>, la dernière version (<b >WPA3</b>) a été publié en <b>2018</b>. <b>WEP</b> a utilisé une clé de cryptage <b>64</b> ou <b>128</b> bits qui doit être saisie manuellement sur les points d'accès sans fil des appareils et qui ne change pas. Cependant <b>WPA</b> génère dynamiquement une nouvelle clé <b>128</b> bits pour chaque paquet, il utilise <a class="article-body link" title="Advanced Encryption Standard" href="../content/Symmetric.html#AES" target="_blank"><b>AES</b></a> comme algorithme de chiffrement sous-jacent</p>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Protocoles HTTP et TLS</h2>
+                    <img src="../images/99.svg" class="article-image" alt="Image about HTTP">
+                    <p class="article-body">Le problème avec le <b>HTTP</b> standard est qu'il n'utilise aucun algorithme de cryptage lié à la cryptographie, donc toutes les informations sont envoyées au format texte brut (sans cryptage), noms d'utilisateur, les mots de passe et les informations relatives aux cartes de crédit sont publics. C'est pourquoi nous avons besoin d'approches plus sécurisées et c'est exactement pourquoi <b>HTTPS</b> a vu le jour.</p>
+                    <p class="article-body"><b>HTTPS</b> est <b>Secure Hypertext Transfer Protocol</b> il crypte les données récupérées par <b>HTTP</b>. Il existe plusieurs approches liées à la cryptographie <b>à clé publique</b> et à clé privée qu'il prend en charge (<b>RSA</b>, <b>ECC</b>, <b>AES</b>, <b >DES</b> etc.)</p>
+                    <p class="article-body"><b>HTTPS</b> utilise des protocoles pour assurer la sécurité des données : <b>SSL</b> et <b>TLS</b>. <b>SSL</b> signifie <b>Secure Socket Layer</b>. Et n'est plus sécurisé, c'est pourquoi en <b>1999</b> il a été mis à jour pour devenir <b>Transport Layer Security (TLS)</b>.</p>
+                    <img src="../images/100.svg" class="article-image" alt="Image about HTTP">
+                </div>
+            </article>
+
+        </main>
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h2 class="widget-title">Blague Crypto</h2>
+                <p class="widget-body">Internet a révolutionné les moyens de communication sans fil, particulièrement avec Louis Fy.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>Monde de la Crypto</strong></p>
+        <p>Copyright &copy; 2022</p>
+        <p>Fait avec <i class="fas fa-heart"></i> Par Malik Makkes</p>
+    </footer>
+
+    <script src="../../javascript/DarkMode.js"></script>
+
+    </body>
+</html>

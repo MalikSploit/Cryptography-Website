@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Malik Makkes">
+        <link rel="stylesheet" type="text/css" href="../../style/Symmetric-style.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="icon" type="image/svg" href="../../images/Favicon.svg">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../../javascript/anti-inspect.js"></script>
+        <script type="text/javascript" src="../../javascript/Symmetric-js.js"></script>
+        <title>Cryptage Symétrique</title>
+    </head>
+
+    <body onload="startTimer()">
+    <noscript>
+        <div class="noscriptmsg">
+            Vous n'avez pas activé JavaScript. Veuillez activer JavaScript.
+        </div>
+    </noscript>
+    <header>
+        <div class="container container-nav">
+            <div class="site-title">
+                <h1>Cryptage Symétrique</h1>
+                <p class="subtitle">Un blog sur la cryptographie à clé unique</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="https://www.linkedin.com/in/malik-makkes/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://github.com/MalikSploit" target="_blank">GitHub</a></li>
+                    <li><img src="../../images/moon.png" id="icon" alt="Theme"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container container-flex">
+        <main role="main">
+            <article class="article-featured">
+                <h2 class="article-title">Cryptage à clé unique</h2>
+                <p class="article-body first">Ce type de cryptographie utilise une seule clé. Ainsi, la même clé est également utilisée pour le chiffrement et le déchiffrement. C'est pourquoi on l'appelle aussi chiffrement symétrique, et son principal problème est que la clé doit être échangée au début pour chiffrer et déchiffrer le texte en clair.</p>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <img src="../images/20.svg" class="article-image" alt="Image"><br><br>
+                    <h2 class="article-title">Chiffrement de César</h2>
+                    <p class="article-body">Il s'agit d'une méthode de chiffrement à clé privée (<b>chiffrement symétrique</b>). Il a été utilisé pour la première fois par <b>Jules César</b> il y a 2000 ans. C'est un type de chiffrement par substitution : nous décalons chaque lettre du texte en clair avec un nombre fixe de lettres et la <b>clé</b> elle-même est le nombre de lettres que nous utilisons pour le décalage.</p>                    <img src="../images/21.svg" class="article-image" alt="Image about Caesar Cipher">
+                    <ol>
+                        <li class="liste">Nous devons d'abord savoir que pour la partie de <b>Cryptage</b> nous utiliserons cette formule : <span class="article-body green"><b>E<sub>n </sub>(x) = (x + n) mod 26</b></span></li>
+                        <li class="liste">Nous devons considérer tous les caractères du texte en clair.</li>
+                        <li class="liste"><b>E(x)</b> est la lettre chiffrée de la lettre <b>x</b> d'origine.</li>
+                        <li class="liste">Ensuite, nous devons décaler la lettre donnée avec <b>n</b> (où <b>n</b> est la clé).</li>
+                        <li class="liste">Maintenant pour la partie de <b>Décryptage</b> nous allons utiliser cette formule : <span class="article-body green"><b>E<sub>n</sub>( x) = (x - n) mod 26</b></span></li>
+                        <li class="liste">Nous devons considérer tous les caractères du texte en clair de la même manière que la partie chiffrement.</li>
+                        <li class="liste"><b>D(x)</b> est la lettre déchiffrée (<b>x</b> est la lettre dans le texte chiffré).</li>
+                        <li class="liste">Ensuite, nous devons décaler la lettre donnée avec <b>-n</b> (où <b>n</b> est la clé).</li>
+                    </ol>
+                    <p class="article-body">Si vous vous demandez pourquoi utilisons-nous <b>mod 26</b>, alors la réponse est très simple, car la taille de l'alphabet français est <b>26</b> ce qui signifie qu'il y a <b>26</b> lettres dans l'alphabet français. De cette façon, la lettre chiffrée se situe dans <b>[0, SIZE_ALPHABET - 1]</b> c'est pourquoi nous utilisons <b>mod 26</b>.</p>
+                    <p class="article-body"><span class="article-body green">Exemple de chiffrement César avec la clé privée = 3 : </span></p>
+                    <ul>
+                        <li><b>Message Clair</b> : this is an example</li>
+                        <li><b>Message Chiffré</b> : wklv lv dq hadpsoh</li>
+                    </ul>
+                </div>
+
+            </article>
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Chiffrement de Vigenère</h2>
+                    <p class="article-body">Le chiffrement de Vigenère utilise un mot donné comme clé privée, les représentations numériques des lettres dans la clé définissent le nombre de caractères pour décaler la lettre réelle dans le texte en clair. Et au lieu d'utiliser une seule valeur comme clé (<b>Caesar Cipher</b>), nous avons autant de valeurs que le nombre de lettres dans la clé privée. On a donc : <span class="article-body green"><b>TAILLE DE TOUTES LES COMBINAISONS POSSIBLES = 26<sup>taille de la clé</sup></b></span></p>
+                    <p class="article-body">Pour la partie <b>Cryptage</b> nous avons la même formule que nous avons utilisée pour <b>Caesar Cipher</b> : <span class="article-body green" ><b>E<sub>i</sub>(x<sub>i</sub>) = (x<sub>i</sub> + K<sub>i</sub>) mod 26</b></span></p>
+                    <p class="article-body">Notamment <b>x<sub>i</sub></b> est la lettre réelle dans le texte en clair.</p>
+                    <p class="article-body">De plus, <b>E<sub>i</sub>(x<sub>i</sub>)</b> est la lettre chiffrée dans le texte chiffré.</p>
+                    <p class="article-body">Dans le <b>chiffrement de Vigenère</b> nous devons utiliser la <b>i-ème</b> lettre de la clé pour chiffrer la <b>i-ème</b> lettre.</p>
+                    <p class="article-body">Pour le <b>Décryptage</b> c'est assez simple il suffit d'utiliser cette formule : <span class="article-body green"><b>D<sub>i </sub>(x<sub>i</sub>) = (x<sub>i</sub> - K<sub>i</sub>) mod 26</b></span></p >
+                    <p class="article-body"><span class="article-body green">Exemple de chiffrement Vigenère avec la clé privée = secret : </span></p>
+                    <ul>
+                        <li><b>Message Clair</b> : this is just an example</li>
+                        <li><b>Message Chiffré</b> : llkj ml byuk eg wbcdtew</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title">Chiffrement Vernam</h2>
+                    <p class="article-body">Il a été construit pour la première fois par <b>Frank Miller</b> en <b>1882</b>. Dans ce cryptosystème, nous utiliserons autant de lettres dans la clé que la longueur du texte en clair.</p>
+                    <p class="article-body">Pour empêcher la <a class="article-body link" title="Explication des Fuites d'Informations" href="https://fr.wikipedia.org/wiki/Fuite_d%27information" target="_blank "><b>Fuite d'Informations</b></a> nous allons utiliser des <b>nombres totalement aléatoires</b> pour décaler les lettres dans le texte en clair, donc la clé doit avoir la même taille que le texte en clair et la clé doit contenir des nombres aléatoires.<p>
+                    <p class="article-body">Commençons par l'algorithme, nous générons une séquence aléatoire (autant de nombres aléatoires que de lettres dans le texte en clair) ce qui signifie que nous ne devons pas réutiliser les mêmes nombres encore et encore. Enfin, nous décalons les lettres du texte en clair avec les nombres aléatoires de la même manière que dans le <b>chiffrement de Vigenère</b> ou le <b>chiffrement de César</b>.</p>
+                    <p class="article-body">Bien sûr, si nous analysons le texte chiffré avec la <b>méthode de Kasiski</b>, il n'y aura aucune fuite d'informations, car chaque lettre du texte chiffré est parfaitement équidistribuée.</p>
+                    <p class="article-body">Voici un exemple ci-dessous d'une analyse utilisant la <b>méthode de Kasiski</b> :</p>
+                    <img src="../images/22.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <img src="../images/23.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <p class="article-body">Avant de donner quelques exemples voici les formules : </p>
+                    <ul>
+                        <li><b>CRYPTAGE</b> : <b>E<sub>i</sub> (x<sub>i</sub>)</b> = <b>(x<sub>i</sub> + VERNAM<sub>i</sub>) mod 26</b></li>
+                        <li><b>DÉCRYPTAGE</b> : <b>D<sub>i</sub> (x<sub>i</sub>)</b> = <b>(x<sub>i</sub> - VERNAM<sub>i</sub>) mod 26</b></li>
+                    </ul>
+                    <img src="../images/24.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <img src="../images/25.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <img src="../images/26.svg" class="article-image line" alt="Image about Vernam Cipher">
+                    <p class="article-body">Le principal problème en ce qui concerne le Chiffrement de Vernam est de savoir comment générer les nombres aléatoires. Malheureusement, de nos jours, nous ne pouvons toujours pas générer de <b>vrais nombres aléatoires</b>, nous générons donc des <b>nombres pseudo-aléatoires</b> et les valeurs ne sont pas indépendantes les unes des autres, donc les nombres pseudo-aléatoires peuvent se répéter et alors être prédit. C'est pourquoi il n'est pas utilisé, car sa mise en œuvre correcte est presque impossible.</p>                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title" id="DES">Data Encryption Standard</h2>
+                    <p class="article-body">Au début des <b>années 1970</b>, il est devenu évident que le secteur commercial avait également besoin de cryptographie.</p>
+                    <p class="article-body">Par exemple : les secrets d'entreprise doivent être transmis de manière sécurisée, les guichets automatiques ont besoin de messages cryptés, etc.</p>
+                    <p class="article-body">Voici le Data Encryption Standard (DES) qui est un <b>algorithme à clé symétrique</b> il a été construit au début des <b>1970</b> à <b> IBM</b> (conçu principalement par <b>Horst Feistel</b>). C'est un <b>chiffrement par bloc</b> en d'autres termes, le texte en clair est traité en texte chiffré en nombre de blocs, hybride de chiffrement par substitution et de chiffrement par permutation et avec cela nous ne sommes pas en mesure de casser <b>DES</b> en utilisant l'analyse de fréquence.</p>
+                    <ol>
+                        <li>Nous devons d'abord diviser le texte en clair en blocs de <b>64</b> bits, ces blocs sont l'entrée pour les <b>16</b> tours.</li>
+                        <li>Ces soi-disant <b>16</b> tours (itérations) pendant le chiffrement/déchiffrement pour <b>DES</b> sont des substitutions, des opérations XOR, etc. Il est également important de noter que l'entrée pour chaque itération est un bloc de <b>64</b> bits.</li>
+                        <li>Chaque tour nécessite une clé différente (elle est appelée <b>sous-clés</b>), et ces clés sont générées à partir de la clé privée d'origine <b>64</b> bits.</li>
+                        <li>Ce principal avantage est que les opérations de chiffrement et de déchiffrement sont très similaires (ne nécessitant que l'inversion des clés).</li>
+                    </ol>
+                    <ul>
+                        <li>Taille du bloc : <b>64</b> bits</li>
+                        <li>Taille de la clé : <b>64</b> bits (56 bits pertinents sont utilisés dans l'algorithme)</li>
+                        <li>Nombre de tours : <b>16</b></li>
+                        <li>Nombre de sous-clés : <b>16</b> (chaque sous-clé a une longueur de <b>48</b> bits)</li>
+                        <li>Taille du chiffrement : <b>64</b> bits</li>
+                    </ul>
+                    <br>
+                    <img src="../images/27.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/28.svg" class="article-image line" alt="Image about DES">
+                    <img id="img1" class="article-image line" src="../images/29.svg" alt="Image about DES"/>
+                    <!--<button type="button" onclick="displayPreviousImage()">Previous</button>-->
+                    <!--<button type="button" onclick="displayNextImage()">Next</button>-->
+                    <img src="../images/32.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/33.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/34.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/35.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/36.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/37.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/38.svg" class="article-image line" alt="Image about DES">
+                    <img src="../images/39.svg" class="article-image line" alt="Image about DES">
+                    <p class="article-body">Comme nous l'avons vu ci-dessus, la <b>norme de chiffrement des données</b> a une soi-disant <a class="article-body link" title="Structure de Feistel Explication" href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_Feistel" target="_blank"><b>Structure de Feistel</b></a> et son principal avantage est que le cryptage est très similaire au décryptage, nous utilisons simplement le même logiciel et le même matériel, en d'autres termes, nous devons simplement utiliser la même fonction que nous avons utilisée avec le chiffrement avec les <b>sous-clés</b> dans un <b>ordre inverse</b>. Les sous-clés peuvent être générées avec des opérations circulaires de décalage vers la gauche, généralement dans l'implémentation, nous générons toutes les 16 sous-clés au début.</p>
+                    <ul>
+                        <li><b>Cryptage</b> : On commence par la première sous-clé puis la seconde et etc.</li>
+                        <li><b>Décryptage</b> : On commence par le dernier (16<sup>ème</sup>) puis le 15<sup>ème</sup> et etc.</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="article-recent">
+                <div class="article-recent-main">
+                    <h2 class="article-title" id="AES">Advanced Encryption Standard</h2>
+                    <p class="article-body">Après quelques années, avec l'évolution des ordinateurs, <b>DES</b> pouvait être brutalement forcé en seulement 8 heures, il est donc devenu évident qu'il n'était plus sécurisé : alors il y avait un besoin pour un autre cryptosystème vraiment sécurisé.</p>
+                    <p class="article-body"><b>AES</b> (le nom d'origine est <b>Rijindael</b>) a été construit en <b>2001</b> par <b>Vincent Rijmen</b> et <b>Joan Daemen</b>. Ce cryptosystème est à la pointe de la technologie, même <b>de nos jours</b>. Il s'agit en fait d'un cryptosystème à clé privée avec trois longueurs de clé différentes : <b>128</b>, <b>192</b> et <b>256</b>. C'est un chiffrement par bloc comme <b>DES</b> mais cela n'a rien à voir avec la structure de Feistel.</p>
+                    <ul>
+                        <li>Bloc de texte brut : <b>128</b> bits (<b>4</b> car <b>1</b> mot est <b>32</b>)</li>
+                        <li>Taille de la clé : <b>128</b> bits (<b>4 mots</b>)</li>
+                        <li>Nombre de sous-clés : <b>10</b> sous-clés</li>
+                        <li>Nombre de tours : <b>10</b> tours (ou <b>12</b> ou <b>14</b>)</li>
+                        <li>À chaque tour, nous utilisons <b>1</b> sous-clé + nous devons utiliser la clé originale de <b>128</b> bits avant d'appliquer la fonction de tour</li>
+                        <li>Bloc de texte chiffré 128 bits : <b>64</b> bits</li>
+                    </ul>
+                    <br>
+                    <img src="../images/40.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/41.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/42.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/43.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/44.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/45.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/46.svg" class="article-image line" alt="Image about AES">
+                    <img src="../images/47.svg" class="article-image line" alt="Image about AES">
+                    <img id="img2" class="article-image line" src="../images/48.svg" alt="Image about AES"/>
+                    <img src="../images/52.svg" class="article-image line" alt="Image about AES">
+                    <img id="img3" class="article-image line" src="../images/53.svg" alt="Image about AES"/>
+                    <p class="article-body"><b>Claude Shannon</b> a défini ces propriétés pour un chiffrement sécurisé :</p>
+                    <ul>
+                        <li><b>Confusion :</b> Chaque chiffre binaire du texte chiffré doit dépendre de plusieurs chiffres de la clé privée. Ensuite, nous voulons rendre la relation entre l'entrée (texte clair) et la sortie (texte chiffré) aussi complexe que possible. Enfin, le texte chiffré ne doit donner aucun indice sur le texte en clair, de cette façon la transformation non linéaire est préférée (ces opérations détruisent le motif dans le texte en clair) et rend difficile la recherche de la clé même si un grand nombre de pairs en clair-texte chiffré sont disponibles. C'est pourquoi nous utilisons des <b>boîtes de substitution</b>.</li>
+                        <li><b>Diffusion :</b> Si nous changeons un seul bit dans l'entrée (texte clair), alors la moitié des chiffres dans la sortie (texte chiffré) devraient changer. Il y a <b>2</b> états (<b>0</b> et <b>1</b>) donc <b>50%</b> signifie également <b>aléatoire</b> appelé effet d'avalanche. C'est pourquoi nous utilisons des <b>boîtes de permutation</b>.</li>
+                    </ul>
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h2 class="widget-title">Blague Crypto</h2>
+                <p class="widget-body">Deux cryptographes entrent dans un bar. Personne d'autre n'a la moindre idée de ce dont ils parlent.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p><strong>Monde de la Crypto</strong></p>
+        <p>Copyright &copy; 2022</p>
+        <p>Fait avec <i class="fas fa-heart"></i> Par Malik Makkes</p>
+    </footer>
+
+    <script src="../../javascript/DarkMode.js"></script>
+    </body>
+</html>
