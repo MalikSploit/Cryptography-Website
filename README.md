@@ -1,4 +1,4 @@
-# Cryptography-Website
+# Cryptography Website
 Link to the website : https://maliksploit.github.io/Cryptography-Website/www/index.html
 
 # How to run the website on localhost
