@@ -2,8 +2,7 @@
 Link to the website : https://maliksploit.github.io/Cryptography-Website/www/index.html
 
 # How to run the website on localhost
-Download the github repository
-Then open the folder : Cryptography-Website-main
+Download the github repository then open the folder : Cryptography-Website-main
 Or type :  
 `cd Cryptography-Website-main`
 Finally to run on localhost type : `python httpd`
