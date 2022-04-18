@@ -13,3 +13,5 @@ Finally to run on localhost type : `python httpd`
 After that you'll get a port composed of 4 numbers
 <br/>
 You just have to go to your browser and type : localhost:"port server"
+<br/>
+Replace "port server" by the port server composed of 4 numbers that got generated for you
