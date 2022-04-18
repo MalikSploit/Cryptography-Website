@@ -1,1 +1,13 @@
-const icon=document.getElementById("icon");icon.onclick=function(){document.body.classList.toggle("dark-theme"),document.body.classList.contains("dark-theme")?icon.src="../images/sun.png":icon.src="../images/moon.png"};
+const icon = document.getElementById("icon");
+icon.onclick = function ()
+{
+    document.body.classList.toggle("dark-theme");
+    if (document.body.classList.contains("dark-theme"))
+    {
+        icon.src = "../images/sun.png";
+    }
+    else
+    {
+        icon.src = "../images/moon.png";
+    }
+};
